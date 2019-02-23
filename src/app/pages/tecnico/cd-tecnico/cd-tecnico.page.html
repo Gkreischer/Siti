@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>cdTecnico</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <form [formGroup]="formCadastroTecnico" (ngSubmit)="enviaForm()">
+          <ion-item>
+            <ion-label position="floating" for="nome">Nome</ion-label>
+            <ion-input type="text" id="nome" formControlName="nome" name="title"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" for="telefone">Telefone</ion-label>
+            <ion-input type="text" id="telefone" formControlName="telefone" name="telefone"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" for="email">Email</ion-label>
+            <ion-input type="text" id="email" formControlName="email" name="email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" for="cargo">Cargo</ion-label>
+            <ion-input type="text" id="cargo" formControlName="cargo" name="cargo"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" for="nomeEmpresa">Empresa</ion-label>
+            <ion-input type="text" id="nomeEmpresa" formControlName="nomeEmpresa" name="nomeEmpresa"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" for="site">Site</ion-label>
+            <ion-input type="text" id="site" formControlName="site" name="site"></ion-input>
+          </ion-item>
+          <ion-button color="success" shape="round" expand="full" margin-top type="submit">Cadastrar</ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
