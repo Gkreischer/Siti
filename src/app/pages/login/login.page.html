@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,15 +13,17 @@
             <ion-card-title>Insira seus dados</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-item>
-              <ion-label position="floating">Usuário</ion-label>
-              <ion-input type="text"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Senha</ion-label>
-              <ion-input type="password"></ion-input>
-            </ion-item>
-            <ion-button color="dark" shape="round" expand="full" margin-top>Entrar</ion-button>
+            <form [formGroup]="formLogin" (ngSubmit)="enviaForm()">
+              <ion-item>
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="text" formControlName="email"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Senha</ion-label>
+                <ion-input type="password" formControlName="senha"></ion-input>
+              </ion-item>
+              <ion-button color="success" shape="round" expand="full" margin-top type="submit">Entrar</ion-button>
+            </form>
           </ion-card-content>
         </ion-card>
       </ion-col>

@@ -10,7 +10,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginPageModule } from './pages/login/login.module'
+import { LoginPageModule } from './pages/login/login.module';
+import { CrudService } from './services/crud.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +28,7 @@ import { LoginPageModule } from './pages/login/login.module'
   providers: [
     StatusBar,
     SplashScreen,
+    CrudService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
