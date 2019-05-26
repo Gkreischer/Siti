@@ -1,8 +1,10 @@
 export interface Tecnico {
+    id: number;
     nome: string;
-    telefone: number;
-    email: string;
     cargo: string;
-    empresa: string;
-    site: string;
+    endereco: string;
+    telefone: string;
+    cpf: string;
+    created_at: string;
+    updated_at: string;
 }

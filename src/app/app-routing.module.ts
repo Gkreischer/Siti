@@ -1,15 +1,35 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
-  { path: 'cdTecnico', loadChildren: './pages/tecnico/cd-tecnico/cd-tecnico.module#CdTecnicoPageModule' },
-  { path: 'info-tecnico/:id', loadChildren: './pages/tecnico/info-tecnico/info-tecnico.module#InfoTecnicoPageModule' }
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    loadChildren: './home/home.module#HomePageModule'
+  },
+  {
+    path: 'login',
+    loadChildren: './login/login.module#LoginPageModule'
+  },
+  {
+    path: 'register',
+    loadChildren: './register/register.module#RegisterPageModule'
+  },
+  {
+    path: 'dadosCadastrais',
+    loadChildren: './dados-cadastrais/dados-cadastrais.module#DadosCadastraisPageModule'
+  },
+  { path: 'dados-cadastrais', loadChildren: './dados-cadastrais/dados-cadastrais.module#DadosCadastraisPageModule' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
