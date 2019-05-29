@@ -23,7 +23,8 @@ const routes: Routes = [
     path: 'dadosCadastrais',
     loadChildren: './dados-cadastrais/dados-cadastrais.module#DadosCadastraisPageModule'
   },
-  { path: 'dados-cadastrais', loadChildren: './dados-cadastrais/dados-cadastrais.module#DadosCadastraisPageModule' }
+  { path: 'dados-cadastrais', loadChildren: './dados-cadastrais/dados-cadastrais.module#DadosCadastraisPageModule' },  { path: 'modal-edicao-dados', loadChildren: './modal-edicao-dados/modal-edicao-dados.module#ModalEdicaoDadosPageModule' }
+
 ];
 
 @NgModule({

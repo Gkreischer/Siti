@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DadosCadastraisPage } from './dados-cadastrais.page';
-import { ModalEdicaoDadosPage } from '../modal-edicao-dados/modal-edicao-dados.page';
+import { ModalEdicaoDadosPage } from './modal-edicao-dados.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: DadosCadastraisPage
+    component: ModalEdicaoDadosPage
   }
 ];
 
@@ -22,12 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [
-  DadosCadastraisPage,
-  ModalEdicaoDadosPage
-  ],
-  entryComponents: [
-    ModalEdicaoDadosPage
-  ]
+  declarations: [ModalEdicaoDadosPage]
 })
-export class DadosCadastraisPageModule {}
+export class ModalEdicaoDadosPageModule {}
