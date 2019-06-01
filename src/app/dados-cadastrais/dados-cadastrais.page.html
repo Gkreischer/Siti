@@ -37,6 +37,11 @@
         </ion-text>
       </ion-col>
     </ion-row>
+    <ion-row *ngIf="erro">
+      <ion-col size="12">
+        {{erro}}
+      </ion-col>
+    </ion-row>
   </ion-grid>
   <ion-fab *ngIf="dadosUsuario" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
