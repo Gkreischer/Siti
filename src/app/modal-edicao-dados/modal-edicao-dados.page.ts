@@ -9,13 +9,25 @@ import { Usuario } from '../shared/usuario';
 })
 export class ModalEdicaoDadosPage implements OnInit {
 
-  dadosRecebidos: any;
+  dadosRecebidos = Object;
+
+  labelsInput = [];
   constructor(public navParams: NavParams) {
     this.dadosRecebidos = this.navParams.get('dadosUsuario');
     console.log('Informacao recebida na modal:', this.dadosRecebidos);
+
+    this.retornaNamesObjeto(this.dadosRecebidos);
   }
 
   ngOnInit() {
+  }
+
+  retornaNamesObjeto(objetoRecebido){
+    if(this.dadosRecebidos !== undefined) {
+      console.log(Object.getOwnPropertyNames(this.dadosRecebidos.dadosUsuario).sort());
+    } else {
+      console.log(this.dadosRecebidos);
+    }
   }
 
 }
