@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\API\BaseController as BaseController;
+use Validator;
 
 class UserController extends BaseController
 {
@@ -73,9 +74,41 @@ class UserController extends BaseController
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $user, $id)
     {
         //
+
+        $input = $request->all();
+
+        $validator = Validator::make($input, [
+            'nome' => 'required',
+            'cpfcnpj' => 'required',
+            'endereco' => 'required',
+            'cidade' => 'required',
+            'estado' => 'required',
+            'cep' => 'required',
+            'telefone' => 'required'
+        ]);
+
+        if($validator->fails()){
+            return $this->sendError('Validation error.', $validator->errors());
+        } else {
+            
+            $user = User::findOrFail($id);
+            $user->nome = $input['nome'];
+            $user->cpfcnpj = $input['cpfcnpj'];
+            $user->endereco = $input['endereco'];
+            $user->cidade = $input['cidade'];
+            $user->estado = $input['estado'];
+            $user->cep = $input['cep'];
+            $user->telefone = $input['telefone'];
+            
+
+            $user->save();
+
+            return $this->sendResponse(200, 'Usuario atualizado com sucesso');
+        }
+
     }
 
     /**

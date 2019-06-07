@@ -43,6 +43,12 @@ export class DadosCadastraisPage implements OnInit {
         dadosUsuario: {dadosUsuario}
       }
     });
+
+    modal.onDidDismiss().then((data) => {
+      this.consultaDadosUsuario();
+    }).catch((error) => {
+      console.log(error);
+    })
     return await modal.present();
   }
 }

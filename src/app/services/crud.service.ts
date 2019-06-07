@@ -37,7 +37,7 @@ export class CrudService {
   }
 
   atualizaRegistro(rota: string, id: string, form): Observable<any> {
-    return this.http.patch(this.URL_DEFAULT + rota + '/' + id, form).pipe(
+    return this.http.post(this.URL_DEFAULT + rota + '/' + id, form).pipe(
       tap(data => { return data}),
       catchError(this.handleError)
     );
