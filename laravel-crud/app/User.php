@@ -19,7 +19,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $hidden = [
-        'senha', 'admin', 'c_senha'
+        'senha', 'c_senha'
     ];
 
     /**
@@ -39,9 +39,6 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $attributes = [
-        'admin' => false
-    ];
 
     function cliente() {
         $this->hasMany(Cliente::class);

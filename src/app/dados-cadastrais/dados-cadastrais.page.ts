@@ -15,15 +15,24 @@ export class DadosCadastraisPage implements OnInit {
 
   erro;
   dadosUsuario: Usuario;
+  id: string;
   constructor(private crud: CrudService, public modal: ModalController) {
-    this.consultaDadosUsuario();
+    this.pegaIdUsuario();
    }
 
   ngOnInit() {
   }
 
-  consultaDadosUsuario(){
-    this.crud.leRegistroEspecifico('/dadosUsuario', '1').subscribe((data) => {
+  pegaIdUsuario() {
+    this.id = localStorage.getItem('id').toString();
+
+    if(this.id){
+      this.consultaDadosUsuario(this.id);
+    }
+  }
+
+  consultaDadosUsuario(id: string){
+    this.crud.leRegistroEspecifico('/dadosUsuario', id).subscribe((data) => {
       this.dadosUsuario = data.data;
       console.log('Usuario recebido', this.dadosUsuario);
     }, error => {
@@ -45,7 +54,7 @@ export class DadosCadastraisPage implements OnInit {
     });
 
     modal.onDidDismiss().then((data) => {
-      this.consultaDadosUsuario();
+      this.consultaDadosUsuario(this.id);
     }).catch((error) => {
       console.log(error);
     })

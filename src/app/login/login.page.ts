@@ -55,10 +55,11 @@ export class LoginPage implements OnInit {
       console.log('Usuário logado', data);
 
       const token = data.token;
+      const id = data.id;
 
-      if(token) {
+      if(token && id) {
         localStorage.setItem('token', token);
-
+        localStorage.setItem('id', id);
         this.router.navigateByUrl('/home');
       }
 

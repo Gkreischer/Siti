@@ -22,5 +22,6 @@ Route::middleware('auth:api')->group(function () {
 	Route::get('logout', 'API\AuthController@logout')->name('logout');
 	Route::resource('produtos', 'API\ProductController');
 	Route::resource('clientes', 'API\ClientesController');
-	Route::post('atualizaUsuario/{usuario}', 'API\UserController@update')->name('atualizaUsuario');
+	Route::post('atualizaUsuario/{usuario}', 'API\UserController@update');
+	Route::post('upload-imagem','API\ImageUploadController@imageUploadPost');
 });

@@ -18,9 +18,11 @@ class AuthController extends Controller
 
         if ($user) {
 
+            $idUsuario = $user->id;
+
             if (\Hash::check($request->senha, $user->senha)) {
                 $token = $user->createToken('Laravel Password Grant Client')->accessToken;
-                $response = ['token' => $token];
+                $response = ['token' => $token, 'id' => $idUsuario];
                 return response($response, 200);
             } else {
                 $response = "Sua senha esta correta?";

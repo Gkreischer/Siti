@@ -38,12 +38,16 @@ export class AppComponent {
     return localStorage.getItem('token');
   }
 
+  get id() {
+    return localStorage.getItem('id');
+  }
+
   verificaSeEstaLogado(){
 
-    if(this.token  != null){
+    if(this.token  != null && this.id != null){
       this.usuarioLogado = true;
       this.router.navigateByUrl('/home');
-      console.log('Token armazenado');
+      console.log('Token e id armazenados');
 
     } else {
       this.usuarioLogado = false;

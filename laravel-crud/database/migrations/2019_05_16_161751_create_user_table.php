@@ -21,7 +21,6 @@ class CreateUserTable extends Migration
             $table->string('endereco');
             $table->string('cidade');
             $table->string('estado');
-            $table->boolean('admin')->default(false);
             $table->string('cep');
             $table->string('obs')->nullable();
             $table->string('telefone');
