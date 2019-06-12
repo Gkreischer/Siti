@@ -4,6 +4,7 @@ export interface Cliente {
     cpfcnpj: number;
     endereco: string;
     cidade: string;
+    foto;
     cep: number;
     obs: string;
     telefone: number;

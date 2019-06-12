@@ -31,10 +31,10 @@ class RegisterController extends BaseController
             'senha' => 'required',
             'c_senha' => 'required|same:senha',
         ]);
-        
+
 
         if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());       
+            return $this->sendError('Validation Error.', $validator->errors());
         }
 
 
@@ -43,7 +43,7 @@ class RegisterController extends BaseController
         $input['c_senha'] = $input['senha'];
 
         $user = User::create($input);
-        
+
         $success['token'] =  $user->createToken('MyApp')->accessToken;
         $success['nome'] =  $user->nome;
 
@@ -66,18 +66,19 @@ class RegisterController extends BaseController
             'c_senha' => 'required|same:senha',
             'user_id' => 'required'
         ]);
-        
+
 
         if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());       
+            return $this->sendError('Validation Error.', $validator->errors());
         }
 
 
         $input = $request->all();
         $input['senha'] = bcrypt($input['senha']);
+        $input['c_senha'] = $input['senha'];
 
         $user = Cliente::create($input);
-        
+
         $success['token'] =  $user->createToken('MyApp')->accessToken;
         $success['nome'] =  $user->nome;
 

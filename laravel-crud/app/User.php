@@ -28,7 +28,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $guarded = [
-        
+
     ];
 
     // Define nome da tabela
@@ -40,7 +40,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
 
-    function cliente() {
-        $this->hasMany(Cliente::class);
+    public function cliente() {
+        return $this->hasMany(Cliente::class);
     }
 }

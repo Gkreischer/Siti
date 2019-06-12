@@ -29,15 +29,15 @@ class Cliente extends Model
     ];
 
     function equipamento() {
-        $this->hasMany(Equipamento::class);
+        return $this->hasMany(Equipamento::class);
     }
 
     function user() {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     function OS(){
-        $this->hasMany(OS::class);
+        return $this->hasMany(OS::class);
     }
 
 }

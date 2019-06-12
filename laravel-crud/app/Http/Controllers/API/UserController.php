@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\API\BaseController as BaseController;
 use Validator;
 
+use App\Cliente;
+
 class UserController extends BaseController
 {
     /**
@@ -93,7 +95,7 @@ class UserController extends BaseController
         if($validator->fails()){
             return $this->sendError('Validation error.', $validator->errors());
         } else {
-            
+
             $user = User::findOrFail($id);
             $user->nome = $input['nome'];
             $user->cpfcnpj = $input['cpfcnpj'];
@@ -102,7 +104,7 @@ class UserController extends BaseController
             $user->estado = $input['estado'];
             $user->cep = $input['cep'];
             $user->telefone = $input['telefone'];
-            
+
 
             $user->save();
 
@@ -121,4 +123,16 @@ class UserController extends BaseController
     {
         //
     }
+
+    public function showClientsOfUser(User $user, $id) {
+
+        // Show the clients of the user by 'user_id' on clients table
+        $user = User::findOrFail(2);
+
+        $clientes = $user->cliente()->select('id', 'nome', 'telefone')->get();
+
+        return response()->json($clientes);
+
+    }
+
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CrudService } from 'src/app/services/crud.service';
+import { Cliente } from 'src/app/shared/cliente';
 
 @Component({
   selector: 'app-lista-clientes',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaClientesPage implements OnInit {
 
-  constructor() { }
+  erro;
+  clientes: Cliente;
+
+  constructor(private crud: CrudService) { }
 
   ngOnInit() {
+    this.consultaClientesDoUsuario();
   }
 
+  get idUsuario(){
+    return localStorage.getItem('id');
+  }
+
+  consultaClientesDoUsuario(){
+    this.crud.leRegistro(`/consultaClientesDoUsuario/${this.idUsuario}`).subscribe((data) => {
+      this.clientes = data;
+    }, error => {
+      this.erro = error;
+      console.log(this.erro);
+    });
+  }
 }

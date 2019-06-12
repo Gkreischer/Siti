@@ -18,7 +18,7 @@ class ClientesController extends Controller
     {
         $clientes = Cliente::all();
         return $this->sendResponse($clientes->toArray(), 'Clientes exibidos com sucesso');
-        
+
 
     }
 
@@ -32,12 +32,17 @@ class ClientesController extends Controller
         $input = $request->all();
 
         $validator = Validator::make($input, [
-            'nome' => 'required',
-            'sobrenome' => 'required',
+            'nome' => 'bail|required',
             'cpfcnpj' => 'required',
+            'user_id' => 'required',
             'endereco' => 'required',
             'cidade' => 'required',
-            'cep' => 'required'
+            'estado' => 'required',
+            'cep' => 'required',
+            'telefone' => 'required',
+            'email' => 'required',
+            'senha' => 'required',
+            'c_senha' => 'required|same:senha'
         ]);
 
         if($validator->fails()){
@@ -151,6 +156,7 @@ class ClientesController extends Controller
 
         return $this->sendResponse($cliente->toArray(), 'Cliente atualizado com sucesso');
     }
+
 
     /**
      * Remove the specified resource from storage.

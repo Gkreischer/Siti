@@ -23,5 +23,6 @@ Route::middleware('auth:api')->group(function () {
 	Route::resource('produtos', 'API\ProductController');
 	Route::resource('clientes', 'API\ClientesController');
 	Route::post('atualizaUsuario/{usuario}', 'API\UserController@update');
-	Route::post('upload-imagem','API\ImageUploadController@imageUploadPost');
+    Route::post('upload-imagem','API\ImageUploadController@imageUploadPost');
+    Route::get('consultaClientesDoUsuario/{id}', 'API\UserController@showClientsOfUser');
 });
