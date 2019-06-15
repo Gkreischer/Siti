@@ -21,7 +21,9 @@ class CreateClienteTable extends Migration
             $table->string('endereco');
             $table->string('cidade');
             $table->string('estado');
-            
+            $table->string('celular')->nullable();
+            $table->boolean('whatsapp')->default(false);
+            $table->string('foto')->default('assets/images/user.png')->nullable();
             $table->string('cep');
             $table->string('obs')->nullable();
             $table->string('telefone');

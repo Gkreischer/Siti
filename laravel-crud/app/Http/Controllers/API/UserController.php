@@ -127,7 +127,7 @@ class UserController extends BaseController
     public function showClientsOfUser(User $user, $id) {
 
         // Show the clients of the user by 'user_id' on clients table
-        $user = User::findOrFail(2);
+        $user = User::findOrFail($id);
 
         $clientes = $user->cliente()->select('id', 'nome', 'telefone')->get();
 

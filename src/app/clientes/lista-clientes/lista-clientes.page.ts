@@ -10,11 +10,15 @@ import { Cliente } from 'src/app/shared/cliente';
 export class ListaClientesPage implements OnInit {
 
   erro;
-  clientes: Cliente;
+  clientes: Cliente[] = [];
 
   constructor(private crud: CrudService) { }
 
   ngOnInit() {
+    this.consultaClientesDoUsuario();
+  }
+
+  ionViewDidEnter() {
     this.consultaClientesDoUsuario();
   }
 
@@ -25,6 +29,10 @@ export class ListaClientesPage implements OnInit {
   consultaClientesDoUsuario(){
     this.crud.leRegistro(`/consultaClientesDoUsuario/${this.idUsuario}`).subscribe((data) => {
       this.clientes = data;
+
+      this.clientes.sort((a,b) =>{
+        return a.nome.localeCompare(b.nome);
+      });
     }, error => {
       this.erro = error;
       console.log(this.erro);

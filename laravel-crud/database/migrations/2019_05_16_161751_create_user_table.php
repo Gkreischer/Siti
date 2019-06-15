@@ -21,9 +21,11 @@ class CreateUserTable extends Migration
             $table->string('endereco');
             $table->string('cidade');
             $table->string('estado');
+            $table->string('foto')->nullable();
             $table->string('cep');
             $table->string('obs')->nullable();
             $table->string('telefone');
+            $table->string('celular')->nullable();
             $table->string('email')->unique();
             $table->string('senha');
             $table->string('c_senha');

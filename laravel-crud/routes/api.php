@@ -17,9 +17,9 @@ Route::post('registroUsuario', 'API\RegisterController@registroUsuario')->name('
 Route::post('registroCliente', 'API\RegisterController@registroCliente')->name('registroCliente');
 Route::post('loginUsuario', 'API\AuthController@login')->name('login');
 Route::get('error', 'API\ErrorController@authenticationError')->name('error');
-Route::get('dadosUsuario/{id}', 'API\UserController@show')->name('exibeDadosUsuario');
 Route::middleware('auth:api')->group(function () {
-	Route::get('logout', 'API\AuthController@logout')->name('logout');
+    Route::get('logout', 'API\AuthController@logout')->name('logout');
+    Route::get('dadosUsuario/{id}', 'API\UserController@show')->name('exibeDadosUsuario');
 	Route::resource('produtos', 'API\ProductController');
 	Route::resource('clientes', 'API\ClientesController');
 	Route::post('atualizaUsuario/{usuario}', 'API\UserController@update');

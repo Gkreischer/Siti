@@ -6,6 +6,7 @@ export interface Usuario {
     cpfcnpj: string;
     endereco: string;
     cidade: string;
+    foto: string;
     estado: string;
     cep: string;
     obs: string;

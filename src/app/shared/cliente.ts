@@ -8,6 +8,8 @@ export interface Cliente {
     cep: number;
     obs: string;
     telefone: number;
+    celular: number;
+    whatsapp: boolean;
     email: string;
     created_at: string;
     updated_at: string;
