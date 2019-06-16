@@ -98,12 +98,14 @@ class UserController extends BaseController
 
             $user = User::findOrFail($id);
             $user->nome = $input['nome'];
+            $user->sobrenome = $input['sobrenome'];
             $user->cpfcnpj = $input['cpfcnpj'];
             $user->endereco = $input['endereco'];
             $user->cidade = $input['cidade'];
             $user->estado = $input['estado'];
             $user->cep = $input['cep'];
             $user->telefone = $input['telefone'];
+            $user->celular = $input['celular'];
 
 
             $user->save();
@@ -129,7 +131,7 @@ class UserController extends BaseController
         // Show the clients of the user by 'user_id' on clients table
         $user = User::findOrFail($id);
 
-        $clientes = $user->cliente()->select('id', 'nome', 'telefone')->get();
+        $clientes = $user->cliente()->select('id', 'nome')->get();
 
         return response()->json($clientes);
 

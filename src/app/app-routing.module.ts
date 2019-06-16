@@ -24,9 +24,9 @@ const routes: Routes = [
     loadChildren: './dados-cadastrais/dados-cadastrais.module#DadosCadastraisPageModule'
   },
   { path: 'dados-cadastrais', loadChildren: './dados-cadastrais/dados-cadastrais.module#DadosCadastraisPageModule' },
-  { path: 'modal-edicao-dados', loadChildren: './modal-edicao-dados/modal-edicao-dados.module#ModalEdicaoDadosPageModule' },
-  { path: 'clientes', loadChildren: './clientes/clientes.module#ClientesPageModule' },  { path: 'adiciona-clientes', loadChildren: './clientes/adiciona-clientes/adiciona-clientes.module#AdicionaClientesPageModule' },
-  { path: 'remove-clientes', loadChildren: './clientes/remove-clientes/remove-clientes.module#RemoveClientesPageModule' }
+  { path: 'clientes', loadChildren: './clientes/clientes.module#ClientesPageModule' },
+  { path: 'adiciona-clientes', loadChildren: './clientes/adiciona-clientes/adiciona-clientes.module#AdicionaClientesPageModule' }
+
 
 
 ];

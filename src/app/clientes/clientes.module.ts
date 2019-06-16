@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { ClientesPage } from './clientes.page';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -23,15 +22,6 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: './adiciona-clientes/adiciona-clientes.module#AdicionaClientesPageModule'
-          }
-        ]
-      },
-      {
-        path: 'remover',
-        children: [
-          {
-            path: '',
-            loadChildren: './remove-clientes/remove-clientes.module#RemoveClientesPageModule'
           }
         ]
       },

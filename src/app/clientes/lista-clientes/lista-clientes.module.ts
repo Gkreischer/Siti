@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { ListaClientesPage } from './lista-clientes.page';
+import { EdicaoDadosCadastraisComponent } from 'src/app/edicao-dados-cadastrais/edicao-dados-cadastrais.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const routes: Routes = [
   {
@@ -19,8 +21,13 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SharedModule
   ],
-  declarations: [ListaClientesPage]
+  declarations: [
+    ListaClientesPage],
+  entryComponents: [
+    EdicaoDadosCadastraisComponent
+  ]
 })
-export class ListaClientesPageModule {}
+export class ListaClientesPageModule { }

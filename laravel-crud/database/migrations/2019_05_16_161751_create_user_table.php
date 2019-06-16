@@ -17,6 +17,7 @@ class CreateUserTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('nome')->unique();
+            $table->string('sobrenome')->nullable();
             $table->string('cpfcnpj')->unique();
             $table->string('endereco');
             $table->string('cidade');

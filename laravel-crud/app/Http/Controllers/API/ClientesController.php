@@ -4,10 +4,11 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\API\BaseController as BaseController;
 use App\Cliente;
 use Validator;
 
-class ClientesController extends Controller
+class ClientesController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -93,17 +94,17 @@ class ClientesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Cliente $cliente, $id)
     {
         //
 
-        $cliente = Cliente::find($id);
+        $cliente = Cliente::findOrFail($id);
 
         if(is_null($cliente)) {
             return $this->sendError('Cliente não encontrado');
         }
 
-        return $this->sendResponse($cliente->toArray(), 'Cliente encontrado com sucesso');
+        return $this->sendResponse($cliente, 'Cliente encontrado com sucesso');
     }
 
     /**
@@ -136,8 +137,7 @@ class ClientesController extends Controller
             'endereco' => 'required',
             'cidade' => 'required',
             'cep' => 'required',
-            'telefone' => 'required',
-            'email' => 'required'
+            'telefone' => 'required'
         ]);
 
         if($validator->fails()){
@@ -151,7 +151,7 @@ class ClientesController extends Controller
         $cliente->cidade = $input['cidade'];
         $cliente->cep = $input['cep'];
         $cliente->telefone = $input['telefone'];
-        $cliente->email = $input['email'];
+        $cliente->celular = $input['celular'];
         $cliente->save();
 
         return $this->sendResponse($cliente->toArray(), 'Cliente atualizado com sucesso');
@@ -164,10 +164,11 @@ class ClientesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cliente $cliente)
+    public function destroy($id)
     {
+        $cliente = Cliente::findOrFail($id);
         $cliente->delete();
 
-        return $this->sendResponse($cliente->toArray(), 'Cliente removido com sucesso.');
+        return $this->sendResponse($id, 'Cliente removido com sucesso.');
     }
 }

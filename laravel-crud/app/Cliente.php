@@ -25,7 +25,7 @@ class Cliente extends Model
 
     // Protege os campos abaixo de retornar nas informações enviadas pelo servidor
     protected $hidden = [
-        'admin', 'senha'
+        'admin', 'senha', 'c_senha'
     ];
 
     function equipamento() {

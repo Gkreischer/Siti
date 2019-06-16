@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from './../services/crud.service';
 import { Usuario } from './../shared/usuario';
-import { Observable } from 'rxjs';
 
 import { ModalController } from '@ionic/angular';
-import { ModalEdicaoDadosPage } from './../modal-edicao-dados/modal-edicao-dados.page';
+import { EdicaoDadosCadastraisComponent } from '../edicao-dados-cadastrais/edicao-dados-cadastrais.component';
 
 @Component({
   selector: 'app-dados-cadastrais',
@@ -47,9 +46,9 @@ export class DadosCadastraisPage implements OnInit {
 
   async abreModal(dadosUsuario: Usuario) {
     const modal = await this.modal.create({
-      component: ModalEdicaoDadosPage,
+      component: EdicaoDadosCadastraisComponent,
       componentProps: {
-        dadosUsuario: {dadosUsuario}
+        dados: {dadosUsuario}
       }
     });
 

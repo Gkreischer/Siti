@@ -12,12 +12,16 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col size="12" size-md="12">
+      <ion-col size="12" size-md="12" class="ion-no-padding">
         <form [formGroup]="formEdicaoDados" (ngSubmit)="enviaForm()">
-          <ion-list *ngIf="dadosRecebidos" class="ion-margin">
+          <ion-list *ngIf="dadosRecebidos" class="ion-margin-horizontal ion-no-padding">
             <ion-item>
               <ion-label>Nome</ion-label>
               <ion-input type="text" formControlName="nome"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Sobrenome</ion-label>
+              <ion-input type="text" formControlName="sobrenome"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label>CPF/CNPJ</ion-label>
@@ -26,6 +30,10 @@
             <ion-item>
               <ion-label>Telefone</ion-label>
               <ion-input type="text" formControlName="telefone"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Celular</ion-label>
+              <ion-input type="text" formControlName="celular"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label>Endereço</ion-label>

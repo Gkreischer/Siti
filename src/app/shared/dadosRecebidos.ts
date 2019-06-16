@@ -1,5 +1,7 @@
 import { Usuario } from './usuario';
+import { Cliente } from './cliente';
 
 export interface DadosRecebidos {
-    dadosUsuario?: Usuario;
+    dadosCliente: Cliente;
+    dadosUsuario: Usuario;
 }

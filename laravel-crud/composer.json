@@ -62,6 +62,7 @@
         ],
         "post-install" : [
             "@php artisan migrate",
+            "@php artisan passport:install --force",
             "@php artisan passport:client --personal"
         ],
         "post-migrate" : [
