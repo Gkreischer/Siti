@@ -1,7 +1,0 @@
-{
-  "name": "siti",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "angular"
-}
