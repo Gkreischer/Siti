@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-class Navbar extends Component {
+import { Navbar, NavbarToggler, Nav, NavItem, Collapse, Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
+class Menu extends Component {
     constructor(props) {
         super(props);
 
@@ -16,23 +17,16 @@ class Navbar extends Component {
     }
     render() {
         return (
-            <Navbar dark expand="md">
+            <Navbar color="dark" dark expand="md">
                 <div className="container">
                     <NavbarToggler onClick={this.toggleNav} />
-                    <NavbarBrand className="mr-auto" href="/"><img src='assets/images/logo.png' height="30" width="41" alt='Ristorante Con Fusion' /></NavbarBrand>
                     <Collapse isOpen={this.state.isNavOpen} navbar>
                         <Nav navbar>
                             <NavItem>
-                                <NavLink className="nav-link" to='/home'><span className="fa fa-home fa-lg"></span> Home</NavLink>
+                                <Link className="nav-link" to='/home'><span className="fa fa-home fa-lg"></span> Home</Link>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="nav-link" to='/aboutus'><span className="fa fa-info fa-lg"></span> About Us</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="nav-link" to='/menu'><span className="fa fa-list fa-lg"></span> Menu</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="nav-link" to='/contactus'><span className="fa fa-address-card fa-lg"></span> Contact Us</NavLink>
+                                <Link className="nav-link" to='/equipamentos'><span className="fa fa-home fa-lg"></span> Equipamento</Link>
                             </NavItem>
                         </Nav>
                         <Nav className="ml-auto" navbar>
@@ -47,4 +41,4 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+export default Menu;

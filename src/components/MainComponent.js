@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Card, Form, Label, FormGroup, CardBody } from 'reactstrap';
-import { Switch, Route, Redirect, Link } from 'react-router-dom';
-import { baseUrl } from './../shared/baseUrl';
+import { Row, Col } from 'reactstrap';
+import { Redirect} from 'react-router-dom';
 import { AuthRoute } from 'react-router-auth'
 import Home from './HomeComponent';
 import Login from './LoginComponent';
-
+import Menu from './MenuComponent';
+import Equipamentos from './EquipamentosComponent';
+import { Switch } from 'react-router-dom';
 class Main extends Component {
 
     constructor(props) {
@@ -50,7 +51,11 @@ class Main extends Component {
             return(
                 <div>
                     <Redirect to="/home" />
-                    <AuthRoute path="/home" component={Home} redirectTo="/loginUsuario" authenticated={this.state.isLogged} />
+                    <Menu />
+                    <Switch>
+                        <AuthRoute path="/home" component={Home} redirectTo="/loginUsuario" authenticated={this.state.isLogged} />
+                        <AuthRoute path="/equipamentos" component={Equipamentos} redirectTo="/loginUsuario" authenticated={this.state.isLogged} />
+                    </Switch>
                 </div>
             );
         }
