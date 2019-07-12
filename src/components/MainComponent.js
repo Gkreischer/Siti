@@ -5,8 +5,9 @@ import { AuthRoute } from 'react-router-auth'
 import Home from './HomeComponent';
 import Login from './LoginComponent';
 import Menu from './MenuComponent';
-import Equipamentos from './EquipamentosComponent';
+import CadastraEquipamentos from './CadastraEquipamentosComponent';
 import { Switch } from 'react-router-dom';
+
 class Main extends Component {
 
     constructor(props) {
@@ -54,7 +55,7 @@ class Main extends Component {
                     <Menu />
                     <Switch>
                         <AuthRoute path="/home" component={Home} redirectTo="/loginUsuario" authenticated={this.state.isLogged} />
-                        <AuthRoute path="/equipamentos" component={Equipamentos} redirectTo="/loginUsuario" authenticated={this.state.isLogged} />
+                        <AuthRoute path="/cadastraEquipamento" component={CadastraEquipamentos} redirectTo="/loginUsuario" authenticated={this.state.isLogged} />
                     </Switch>
                 </div>
             );

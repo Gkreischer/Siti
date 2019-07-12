@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col,  Card, CardBody, CardTitle } from 'reactstrap';
 
 class Home extends Component{
     constructor(props) {
@@ -15,7 +15,28 @@ class Home extends Component{
             <Container fluid>
                 <Row>
                     <Col md="12">
-                        Rola
+                        <Container>
+                            <Row>
+                                <Col md="4">
+                                    <Card>
+                                        <CardBody>
+                                            <CardTitle>
+                                                <h3>OS atrasadas</h3>
+                                            </CardTitle>
+                                        </CardBody>
+                                    </Card>
+                                </Col>
+                                <Col md="4">
+                                    <Card>
+                                        <CardBody>
+                                            <CardTitle>
+                                                <h3>Lembretes</h3>
+                                            </CardTitle>
+                                        </CardBody>
+                                    </Card>
+                                </Col>
+                            </Row>
+                        </Container>
                     </Col>
                 </Row>
             </Container>
