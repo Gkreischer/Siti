@@ -1,9 +1,7 @@
 import React, { Component} from 'react';
-
 import { Container, Row, Col, Card, Form, Label, FormGroup, CardBody } from 'reactstrap';
-
-
 import { baseUrl } from './../shared/baseUrl';
+import  fetch  from 'cross-fetch';
 
 class Login extends Component {
 

@@ -29,7 +29,7 @@ class CreateOsTable extends Migration
             $table->foreign('cliente_id')->references('id')->on('cliente')->onDelete('cascade');
 
             $table->unsignedBigInteger('equipamento_id')->index();
-            $table->foreign('equipamento_id')->references('id')->on('equipamento')->onDelete('cascade');
+            $table->foreign('equipamento_id')->references('id')->on('equipamentos')->onDelete('cascade');
 
             $table->unsignedBigInteger('config_dados_empresa_id')->index();
             $table->foreign('config_dados_empresa_id')->references('id')->on('empresa')->onDelete('cascade');

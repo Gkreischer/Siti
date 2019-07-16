@@ -28,4 +28,6 @@ Route::middleware('auth:api')->group(function () {
     Route::delete('deletaCliente/{cliente}', 'API\ClientesController@destroy');
     Route::post('upload-imagem','API\ImageUploadController@imageUploadPost');
     Route::get('consultaClientesDoUsuario/{id}', 'API\UserController@showClientsOfUser');
+    Route::post('categoriasEquipamento', 'API\CategoriasController@create');
+    Route::resource('categorias', 'API\CategoriasController');
 });

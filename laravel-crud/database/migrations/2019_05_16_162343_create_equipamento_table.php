@@ -13,12 +13,16 @@ class CreateEquipamentoTable extends Migration
      */
     public function up()
     {
-        Schema::create('equipamento', function (Blueprint $table) {
+        Schema::create('equipamentos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('nome');
-
-
+            $table->string('equipamento');
+            $table->string('tipo');
+            $table->string('cliente');
+            $table->string('configuracao');
+            $table->string('foto');
+            
             $table->unsignedBigInteger('cliente_id')->index();
             $table->foreign('cliente_id')->references('id')->on('cliente')->onDelete('cascade');
             
